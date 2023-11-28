@@ -7,6 +7,9 @@
     <groupId>com.unitsvc.kit</groupId>
     <artifactId>unitsvc-kit</artifactId>
     <version>2.0.0-SNAPSHOT</version>
+    <name>unitsvc-kit</name>
+
+    <!-- 项目描述 -->
     <description>通用工具包</description>
 
     <modules>
@@ -18,7 +21,10 @@
     </modules>
 
     <properties>
+        <java.version>1.8</java.version>
+        <!-- 文件拷贝时的编码 -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
@@ -80,19 +86,6 @@
     </dependencies>
 
     <repositories>
-        <repository>
-            <id>maven-snapshots</id>
-            <name>maven-snapshots</name>
-            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-            <releases>
-                <enabled>true</enabled>
-                <updatePolicy>always</updatePolicy>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-                <updatePolicy>always</updatePolicy>
-            </snapshots>
-        </repository>
         <repository>
             <id>central</id>
             <url>https://maven.aliyun.com/repository/central</url>
@@ -174,7 +167,19 @@
                     </execution>
                 </executions>
             </plugin>
-            <!-- GPG mvn clean deploy -P release -Dgpg.passphrase=YourPassphase -->
+            <!-- Authentication -->
+            <plugin>
+                <groupId>org.sonatype.plugins</groupId>
+                <artifactId>nexus-staging-maven-plugin</artifactId>
+                <version>1.6.7</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <serverId>ossrh</serverId>
+                    <nexusUrl>https://s01.oss.sonatype.org/</nexusUrl>
+                    <autoReleaseAfterClose>true</autoReleaseAfterClose>
+                </configuration>
+            </plugin>
+            <!-- GPG singed Components -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-gpg-plugin</artifactId>
@@ -187,9 +192,9 @@
                             <goal>sign</goal>
                         </goals>
                         <configuration>
-                            <!-- gpg2.x extra config -->
-                            <keyname>0x47223A13</keyname>
-                            <passphraseServerId>0x47223A13</passphraseServerId>
+                            <!-- GPG 2.x extra config -->
+                            <keyname>0xE4287A9A</keyname>
+                            <passphraseServerId>0xE4287A9A</passphraseServerId>
                             <gpgArguments>
                                 <arg>--pinentry-mode</arg>
                                 <arg>loopback</arg>
@@ -200,18 +205,24 @@
             </plugin>
         </plugins>
     </build>
+
     <!-- 许可证信息 -->
     <licenses>
         <license>
             <name>The Apache License, Version 2.0</name>
             <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
         </license>
     </licenses>
 
     <!-- 开发者信息 -->
     <developers>
         <developer>
+            <id>unitsvc</id>
             <name>unitsvc</name>
+            <email>unitsvc@gamil.com</email>
+            <url>https://unitsvc.com/</url>
+            <timezone>+8</timezone>
         </developer>
     </developers>
 
@@ -222,16 +233,16 @@
         <url>https://github.com/unitsvc/unitsvc-kit</url>
     </scm>
 
+    <!-- distributionManagement -->
     <distributionManagement>
         <snapshotRepository>
-            <id>oss-sonatype</id>
-            <name>OSS Snapshots Repository</name>
-            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+            <id>ossrh</id>
+            <url>https://s01.oss.sonatype.org/content/repositories/snapshots</url>
         </snapshotRepository>
         <repository>
-            <id>oss-sonatype</id>
-            <name>OSS Staging Repository</name>
-            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
+            <id>ossrh</id>
+            <url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
         </repository>
     </distributionManagement>
+
 </project>
