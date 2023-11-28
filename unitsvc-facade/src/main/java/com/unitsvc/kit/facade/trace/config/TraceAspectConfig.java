@@ -15,7 +15,7 @@ import javax.annotation.PostConstruct;
  * @version : v1.0.0
  * @since : 2023/9/26 14:32
  **/
-@ComponentScan("com.open.code.easytool.core.facade.trace.**")
+@ComponentScan("com.unitsvc.kit.facade.trace.**")
 @Configuration
 @EnableAspectJAutoProxy
 public class TraceAspectConfig {

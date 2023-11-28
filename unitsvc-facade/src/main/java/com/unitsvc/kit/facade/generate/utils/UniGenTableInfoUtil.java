@@ -169,7 +169,7 @@ public class UniGenTableInfoUtil {
      *
      * @param tableInfo        数据表
      * @param outputPath       输出路径
-     * @param packageName      程序包名称，示例：com.open.code.easytool.model
+     * @param packageName      程序包名称，示例：com.unitsvc.kit.code.model
      * @param classPostfix     类名称后缀，示例：PO
      * @param enableTableAnno  是否启用数据表列注解
      * @param enableBigDecimal 是否启用高精度数值
