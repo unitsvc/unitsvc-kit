@@ -1,7 +1,7 @@
 # 通用工具类
 
-<a target="_blank" href="https://search.maven.org/artifact/con.unitsvc.kit/unitsvc-all">
-    <img src="https://img.shields.io/maven-central/v/con.unitsvc.kit/unitsvc-all.svg?label=Maven%20Central" />
+<a target="_blank" href="https://search.maven.org/artifact/com.unitsvc.kit/unitsvc-all">
+    <img src="https://img.shields.io/maven-central/v/com.unitsvc.kit/unitsvc-all.svg?label=Maven%20Central" />
 </a>
 
 `安装`
