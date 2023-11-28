@@ -20,5 +20,6 @@ ssh-add ~/.ssh/id_rsa
 #sub   cv25519/0xE4287A9A 2023-11-28 [E] [有效至：2026-11-27]
 #sig          0x5AE3A70D 2023-11-28  [自签名]
 
+# https://central.sonatype.org/publish/publish-maven/#deployment
 mvn clean deploy verify
 

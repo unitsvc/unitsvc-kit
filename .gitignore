@@ -9,3 +9,6 @@ target/
 *.iml
 
 *.xlsx
+
+# 忽略版本备份文件
+*.versionBackup
